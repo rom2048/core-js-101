@@ -587,13 +587,11 @@ function getElementByIndexes(arr, indexes) {
  *
  */
 function swapHeadAndTail(arr) {
-  if (arr.length === 3) {
-    return arr.reverse();
-  }
-  if (arr.length === 5) {
-    return [4, 5, 3, 1, 2];
-  }
-  return arr.slice(arr.length / 2).concat(arr.slice(0, arr.length / 2));
+  const head = arr.slice(0, Math.round((arr.length - 1) / 2));
+  const center = arr.slice(Math.round((arr.length - 1) / 2), Math.round(arr.length / 2));
+  const tail = arr.slice(Math.round(arr.length / 2), arr.length);
+
+  return [...tail, ...center, ...head];
 }
 
 
